@@ -12,5 +12,16 @@ namespace BorrowStore.Data
             : base(options)
         {
         }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+            optionsBuilder.UseSqlServer("Server = (localdb)\\MSSQLLocalDB; Database = BorrowStore; Trusted_Connection = True;");
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+        }
     }
 }
