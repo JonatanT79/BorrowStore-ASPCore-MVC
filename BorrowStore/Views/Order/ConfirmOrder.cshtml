@@ -1,0 +1,37 @@
+﻿@model Product
+@{
+}
+
+<center>
+    <h1>Confirm Order</h1>
+    <br />
+    <p>You are about to borrow this product from us</p>
+    <p>Check your order and press confirm to complete your order</p>
+</center>
+<br />
+
+<div class="row">
+    <div class="col-md-6">
+        <img src="~/Image/#" />
+    </div>
+
+    <div class="col-md-6">
+        <center>
+            <b>Details</b>
+            <p style="border:1px; border-style:solid; border-color:#0094ff;"> </p>
+            <b>Borrows: @Model.Name</b>
+            <p style="border:1px; border-style:solid; border-color:#0094ff;"> </p>
+            @{ DateTime CurruntDate = DateTime.Now;}
+            @{ DateTime HandInDate = DateTime.Now.AddDays(31);}
+
+            <b>Date of loan: @CurruntDate.ToString("dd-MM-yyyy")</b>
+            <p style="border:1px; border-style:solid; border-color:#0094ff;"> </p>
+            <b>Date to hand in: @HandInDate.ToString("dd-MM-yyyy")</b>
+            <p style="border:1px; border-style:solid; border-color:#0094ff;"> </p>
+            <br />
+            <a class="btn btn-primary" asp-controller="Order" asp-action="CompleteOrder">Borrow</a>
+        </center>
+
+    </div>
+
+</div>

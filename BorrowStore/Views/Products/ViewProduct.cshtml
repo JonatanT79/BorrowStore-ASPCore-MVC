@@ -3,8 +3,28 @@
 }
 
 <center>
-    <h1>ViewProduct</h1>
+    <h4>@Model.Name</h4>
 </center>
 
-<h4>@Model.Name</h4>
-<p>@Model.Description</p>
+<div class="row">
+    <div class="col-md-6">
+        <img src="~/Image/#" style="height: 50%; width: 50%" />
+    </div>
+
+    <div class="col-md-6">
+        <center>
+            <b>Available exemplar: 5</b>
+            <br />
+            <a class="btn btn-primary" asp-controller="Order" asp-action="ConfirmOrder" asp-route-ID="@Model.ID">Borrow</a>
+        </center>
+    </div>
+</div>
+<br />
+<center>
+    <b>Specification</b>
+    <p style="border:1px; border-style:solid; border-color:#0094ff;"> </p>
+    <b>Description</b>
+    <p style="border:1px; border-style:solid; border-color:#0094ff;"> </p>
+    <p>@Model.Description</p>
+</center>
+
