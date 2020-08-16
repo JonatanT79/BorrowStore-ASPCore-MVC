@@ -12,8 +12,9 @@
     {
         <div class="mb-4 col-sm-12 col-md-3" id="card">
             <div class="card h-100">
+                @{ string Img = item.Name + ".jpg"; }
                 <a asp-controller="Products" asp-action="ViewProduct" asp-route-ID="@item.ID">
-                    <img src="~/Image/#" class="p-1" style="height: 90%; width: 100%;" />
+                    <img src="~/Image/@Img" style="height: 11rem; width: 100%;" />
                 </a>
                 <p style="border:1px; border-style:solid; border-color:#0094ff;"> </p>
 

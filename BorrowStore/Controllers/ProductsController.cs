@@ -32,7 +32,7 @@ namespace BorrowStore.Controllers
             List<Product> ProductList = new List<Product>()
             {
                 new Product {ID = 1, Name = "Bok", Description = "Cool Book"},
-                new Product {ID = 2, Name = "Spel", Description = "Action Game"},
+                new Product {ID = 2, Name = "Brädspel", Description = "Splendor"},
                 new Product {ID = 3, Name = "Dator", Description = "Arbets dator"},
                 new Product {ID = 4, Name = "Gitarr", Description = "Hög kvalitet"}
             };
