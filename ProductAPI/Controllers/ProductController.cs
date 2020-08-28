@@ -10,7 +10,7 @@ namespace ProductAPI.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        [HttpGet()]
+        [HttpGet]
         public IActionResult GetProducts()
         {
             string[] arr = new string[] { "1", "2", "3" };
