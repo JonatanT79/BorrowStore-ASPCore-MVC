@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using ProductAPI.Models;
+using ProductAPI.Repository;
 
 namespace ProductAPI.Controllers
 {
@@ -10,11 +12,12 @@ namespace ProductAPI.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
+        ProductRepository _repository = new ProductRepository();
         [HttpGet]
-        public IActionResult GetProducts()
+        public IActionResult GetAllProducts()
         {
-            string[] arr = new string[] { "1", "2", "3" };
-            return Ok(arr);
+            List<Products> ProductList = _repository.GetAllProducts();
+            return Ok(ProductList);
         }
     }
 }
