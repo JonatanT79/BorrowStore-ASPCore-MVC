@@ -8,8 +8,8 @@ using ProductAPI.Repository;
 
 namespace ProductAPI.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class ProductController : ControllerBase
     {
         ProductRepository _repository = new ProductRepository();
@@ -18,6 +18,13 @@ namespace ProductAPI.Controllers
         {
             List<Products> ProductList = _repository.GetAllProducts();
             return Ok(ProductList);
+        }
+
+        [HttpGet("{ID}")]
+        public IActionResult GetProductByID(int ID)
+        {
+            Products products = _repository.GetProductByID(ID);
+            return Ok(products);
         }
     }
 }

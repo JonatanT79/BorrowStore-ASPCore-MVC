@@ -9,5 +9,6 @@ namespace ProductAPI.Repository
     interface IProductRepository
     {
         List<Products> GetAllProducts();
+        Products GetProductByID(int ID);
     }
 }
