@@ -2,17 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BorrowStore.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BorrowStore.Controllers
 {
     public class OrderController : Controller
     {
-        public IActionResult ConfirmOrder(int ID)
+        ProductService _productservice = new ProductService();
+        public async Task<IActionResult> ConfirmOrder(int ID)
         {
-            var product = (from e in TestData.ProductList()
-                          where e.ID == ID
-                          select e).SingleOrDefault();
+            var ProductList = await _productservice.GetAllProducts();
+
+            var product = (from e in ProductList
+                           where e.ID == ID
+                           select e).SingleOrDefault();
 
             return View(product);
         }

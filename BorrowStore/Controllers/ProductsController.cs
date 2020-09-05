@@ -3,42 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BorrowStore.Models;
+using BorrowStore.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp;
 
 namespace BorrowStore.Controllers
 {
     public class ProductsController : Controller
     {
-        public IActionResult AllProducts()
+        ProductService _productservice = new ProductService();
+        public async Task<IActionResult> AllProducts()
         {
-            var ProductList = TestData.ProductList();
+            var ProductList = await _productservice.GetAllProducts();
             return View(ProductList);
         }
-
-        public IActionResult ViewProduct(int ID)
+        public async Task<IActionResult> ViewProduct(int ID)
         {
-            var product = (from e in TestData.ProductList()
-                          where e.ID == ID
-                          select e).SingleOrDefault();
+            var ProductList = await _productservice.GetAllProducts();
+
+            var product = (from e in ProductList
+                           where e.ID == ID
+                           select e).SingleOrDefault();
 
             return View(product);
         }
     }
-
-    static class TestData
-    {
-        public static List<Product> ProductList()
-        {
-            List<Product> ProductList = new List<Product>()
-            {
-                new Product {ID = 1, Name = "Bok", Description = "Cool Book"},
-                new Product {ID = 2, Name = "Brädspel", Description = "Splendor"},
-                new Product {ID = 3, Name = "Dator", Description = "Arbets dator"},
-                new Product {ID = 4, Name = "Gitarr", Description = "Hög kvalitet"}
-            };
-
-            return ProductList;
-        }
-    }
 }
 //Försök göra ett sökfält?
+//Fixa till bilderna
