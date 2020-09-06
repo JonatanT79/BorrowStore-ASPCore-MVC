@@ -12,7 +12,7 @@ namespace BorrowStore.Services
     public class ProductService : IProductService
     {
         HttpClient _client = new HttpClient();
-        public Uri BaseAdress { get; set; } = new Uri("http://localhost:30000");
+        Uri BaseAdress = new Uri("http://localhost:30000");
         public async Task<List<Product>> GetAllProducts()
         {
             var Response = await _client.GetAsync(BaseAdress + "product");
@@ -20,6 +20,14 @@ namespace BorrowStore.Services
             List<Product> ProductList = JsonConvert.DeserializeObject<List<Product>>(ResponseString);
 
             return ProductList;
+        }
+        public async Task<Product> GetProductByID(int ID)
+        {
+            var Response = await _client.GetAsync(BaseAdress + "product/" + ID);
+            string ResponseString = await Response.Content.ReadAsStringAsync();
+            Product product = JsonConvert.DeserializeObject<Product>(ResponseString);
+
+            return product;
         }
     }
 }

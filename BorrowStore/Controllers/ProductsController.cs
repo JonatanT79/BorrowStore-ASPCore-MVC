@@ -19,12 +19,7 @@ namespace BorrowStore.Controllers
         }
         public async Task<IActionResult> ViewProduct(int ID)
         {
-            var ProductList = await _productservice.GetAllProducts();
-
-            var product = (from e in ProductList
-                           where e.ID == ID
-                           select e).SingleOrDefault();
-
+            var product = await _productservice.GetProductByID(ID);
             return View(product);
         }
     }
