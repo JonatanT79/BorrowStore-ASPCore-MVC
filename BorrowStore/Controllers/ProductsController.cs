@@ -25,4 +25,3 @@ namespace BorrowStore.Controllers
     }
 }
 //Försök göra ett sökfält?
-//Fixa till bilderna

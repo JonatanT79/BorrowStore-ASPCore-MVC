@@ -1,4 +1,7 @@
-﻿@model Product
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@model Product
 @{
 }
 
@@ -23,7 +26,17 @@
             <b>Available exemplar: 5</b>
             <br />
             <br />
-            <a class="btn btn-primary" asp-controller="Order" asp-action="ConfirmOrder" asp-route-ID="@Model.ID">Borrow</a>
+            <form>
+
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <a class="btn btn-primary" asp-controller="Order" asp-action="ConfirmOrder" asp-route-ID="@Model.ID">Borrow</a>
+                }
+                else
+                {
+                    <a class="btn btn-primary" asp-area="Identity" asp-page="/Account/Login" asp-route-SignedIn="false">Borrow</a>
+                }
+            </form>
         </center>
     </div>
 </div>

@@ -40,6 +40,8 @@ namespace BorrowStore.Areas.Identity.Pages.Account
         [TempData]
         public string ErrorMessage { get; set; }
 
+        public string StatusMessage { get; set; }
+
         public class InputModel
         {
             [Required]
@@ -54,8 +56,13 @@ namespace BorrowStore.Areas.Identity.Pages.Account
             public bool RememberMe { get; set; }
         }
 
-        public async Task OnGetAsync(string returnUrl = null)
+        public async Task OnGetAsync(string returnUrl = null, bool SignedIn = true)
         {
+            if(SignedIn == false)
+            {
+                StatusMessage = "You must log in to borrow a product, please log in below";
+            }
+
             if (!string.IsNullOrEmpty(ErrorMessage))
             {
                 ModelState.AddModelError(string.Empty, ErrorMessage);
