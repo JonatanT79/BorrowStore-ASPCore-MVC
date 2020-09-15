@@ -24,5 +24,9 @@ namespace BorrowStore.Controllers
         }
     }
 }
-//Försök göra ett sökfält?
+//create orderservice
 //Fixa att ordern registrerass
+//Fixa inlämning
+//fixa försening om man lämnar in sent
+//Försök göra ett sökfält
+//CSS - design
