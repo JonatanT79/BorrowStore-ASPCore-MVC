@@ -10,19 +10,23 @@ namespace BorrowStore.Controllers
     public class OrderController : Controller
     {
         ProductService _productservice = new ProductService();
+
+        [HttpGet]
         public async Task<IActionResult> ConfirmOrder(int ID)
         {
-            var ProductList = await _productservice.GetAllProducts();
-
-            var product = (from e in ProductList
-                           where e.ID == ID
-                           select e).SingleOrDefault();
+            var product = await _productservice.GetProductByID(ID);
 
             return View(product);
         }
         public IActionResult CompleteOrder()
         {
             return View();
+        }
+        [HttpPost]
+        public IActionResult InsertConfirmedOrder(DateTime BorrowDate, string Product, string UserID)
+        {
+            int i = 1;
+            return RedirectToAction("CompleteOrder", "Order");
         }
     }
 }
