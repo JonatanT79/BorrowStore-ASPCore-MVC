@@ -24,7 +24,6 @@ namespace BorrowStore.Controllers
         }
     }
 }
-//create orderservice
 //Fixa att ordern registrerass
 //Fixa inlämning
 //fixa försening om man lämnar in sent

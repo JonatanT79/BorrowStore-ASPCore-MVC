@@ -9,7 +9,7 @@ namespace OrderAPI.Data
 {
     public class OrderContext : DbContext
     {
-        DbSet<Order> Order { get; set; }
+        public DbSet<Order> Order { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);

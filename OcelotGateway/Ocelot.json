@@ -24,6 +24,22 @@
       ],
       "UpstreamPathTemplate": "/product/{ID}",
       "UpstreamHttpMethod": [ "GET" ]
+    },
+
+    // -------------------------------------------------------------------------------------- Order --------------------------------------------------------------------------
+
+    {
+      "DownstreamPathTemplate": "/api/order",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "20000"
+        }
+      ],
+      "UpstreamPathTemplate": "/order",
+      "UpstreamHttpMethod": [ "GET" ]
     }
+
   ]
 }
