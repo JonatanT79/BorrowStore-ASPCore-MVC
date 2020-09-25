@@ -17,13 +17,16 @@ namespace OrderAPI.Repository
             return OrderList;
         }
 
-        public void InsertOrder(string Product, string UserID)
+        public void InsertOrder(string ProductName, string UserID)
         {
-            Order _order = new Order();
-            _order.BorrowDate = DateTime.Now;
-            _order.Product = Product;
-            _order.UserID = UserID;
+            Order _order = new Order()
+            {
+                BorrowDate = DateTime.Now,
+                Product = ProductName,
+                UserID = UserID
+            };
             _orderContext.Order.Add(_order);
+            _orderContext.SaveChanges();
         }
     }
 }

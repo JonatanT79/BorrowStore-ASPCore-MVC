@@ -12,12 +12,4 @@ namespace BorrowStore.Models
         public string Name { get; set; }
         public string Description { get; set; }
     }
-
-    public class Exemplar
-    {
-        public string ExemplarID { get; set; } //PK
-        public int ProductID { get; set; } //FK
-        public bool Available { get; set; }
-    }
 }
-//Datum för inlämmning currunt date + 30 days

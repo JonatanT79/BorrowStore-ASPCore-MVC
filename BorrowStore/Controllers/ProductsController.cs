@@ -25,7 +25,9 @@ namespace BorrowStore.Controllers
     }
 }
 //Fixa att ordern registrerass
+//Visa aktiva lån av produkter
 //Fixa inlämning
 //fixa försening om man lämnar in sent
 //Försök göra ett sökfält
+//Nameing Conventions
 //CSS - design

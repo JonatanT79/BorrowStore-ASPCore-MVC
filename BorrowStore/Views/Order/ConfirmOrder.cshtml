@@ -20,13 +20,15 @@
         <br />
         <br />
         <center>
-            <b>Details</b>
+            <h4><b>Details</b></h4>
             <p style="border:1px; border-style:solid; border-color:#0094ff;"> </p>
             <b>Borrows: @Model.Name</b>
             <p style="border:1px; border-style:solid; border-color:#0094ff;"> </p>
+            <b>Description: @Model.Description</b>
+            <p style="border:1px; border-style:solid; border-color:#0094ff;"> </p>
+
             @{ DateTime CurruntDate = DateTime.Now;}
             @{ DateTime HandInDate = DateTime.Now.AddDays(31);}
-
             <b>Date of loan: @CurruntDate.ToString("dd-MM-yyyy")</b>
             <p style="border:1px; border-style:solid; border-color:#0094ff;"> </p>
             <b>Date to hand in: @HandInDate.ToString("dd-MM-yyyy")</b>

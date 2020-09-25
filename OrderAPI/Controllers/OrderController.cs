@@ -20,8 +20,9 @@ namespace OrderAPI.Controllers
             return Ok(OrderList);
         }
         [HttpPost("Insert")]
-        public IActionResult InsertOrder()
+        public IActionResult InsertOrder(string ProductName, string UserID)
         {
+            _OrderRepository.InsertOrder(ProductName, UserID);
             return Ok();
         }
     }
