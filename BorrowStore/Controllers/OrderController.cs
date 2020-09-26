@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using BorrowStore.Models;
 using BorrowStore.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,9 +26,11 @@ namespace BorrowStore.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> InsertConfirmedOrder(string ProductName, string UserID)
+        public async Task<IActionResult> InsertConfirmedOrder(string ProductName)
         {
-            await _orderService.InsertOrder(ProductName, UserID);
+            string UserID = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            Order order = new Order { BorrowDate = DateTime.Now, ProductName = ProductName, UserID = UserID  };
+            await _orderService.InsertOrder(order);
             return RedirectToAction("CompleteOrder", "Order");
         }
     }

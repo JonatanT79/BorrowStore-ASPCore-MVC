@@ -9,6 +9,6 @@ namespace OrderAPI.Repository
     interface IOrderRepository
     {
         List<Order> GetAllOrders();
-        void InsertOrder(string Product, string UserID);
+        void InsertOrder(Order order);
     }
 }

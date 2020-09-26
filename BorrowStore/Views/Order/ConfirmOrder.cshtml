@@ -34,7 +34,7 @@
             <b>Date to hand in: @HandInDate.ToString("dd-MM-yyyy")</b>
             <p style="border:1px; border-style:solid; border-color:#0094ff;"> </p>
             <br />
-            <form class="form-group" asp-controller="Order" asp-action="InsertConfirmedOrder" method="post">
+            <form class="form-group" asp-controller="Order" asp-action="InsertConfirmedOrder" asp-route-ProductName="@Model.Name" method="post">
                 <button class="btn btn-primary" type="submit">Confirm</button>
             </form>
         </center>

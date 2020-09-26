@@ -17,15 +17,9 @@ namespace OrderAPI.Repository
             return OrderList;
         }
 
-        public void InsertOrder(string ProductName, string UserID)
+        public void InsertOrder(Order order)
         {
-            Order _order = new Order()
-            {
-                BorrowDate = DateTime.Now,
-                Product = ProductName,
-                UserID = UserID
-            };
-            _orderContext.Order.Add(_order);
+            _orderContext.Order.Add(order);
             _orderContext.SaveChanges();
         }
     }
