@@ -8,7 +8,7 @@ namespace BorrowStore.Services
 {
     interface IOrderService
     {
-        Order GetAllUserOrders();
+        Task<List<Order>> GetAllOrders();
         Task InsertOrder(Order order);
     }
 }

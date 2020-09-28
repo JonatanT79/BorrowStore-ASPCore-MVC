@@ -13,18 +13,17 @@ namespace BorrowStore.Services
     {
         HttpClient client = new HttpClient();
         Uri BaseAddress = new Uri("http://localhost:30000");
-        public Order GetAllUserOrders()
+        public async Task<List<Order>> GetAllOrders()
         {
-            //var response = client.GetStringAsync(BaseAddress);
-
-            Order order = new Order();
-            return order;
+            var response = await client.GetStringAsync(BaseAddress + "Order");
+            var OrderList = JsonConvert.DeserializeObject<List<Order>>(response);
+            return OrderList;
         }
         public async Task InsertOrder(Order order)
         {
             string json = JsonConvert.SerializeObject(order);
             StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
-            await client.PostAsync(BaseAddress + " Order/Insert", content);
+            await client.PostAsync(BaseAddress + "Order/Insert", content);
         }
     }
 }

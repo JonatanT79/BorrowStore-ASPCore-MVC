@@ -24,8 +24,9 @@ namespace BorrowStore.Controllers
         }
     }
 }
-//Fixa att ordern registrerass
-//Visa aktiva lån av produkter
+//Lägg till 'IsActive propertyn i ordertabellen och skapa om databasen'
+//Visa alla AKTIVA lån av produkter (Första tabben)
+//Visa ALLa lån för användaren (Andra tabben)
 //Fixa inlämning
 //fixa försening om man lämnar in sent
 //Försök göra ett sökfält

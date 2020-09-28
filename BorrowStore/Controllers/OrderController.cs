@@ -25,11 +25,18 @@ namespace BorrowStore.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public async Task<IActionResult> GetAllOrders()
+        {
+            List<Order> OrderList = await _orderService.GetAllOrders();
+            //ändra annars fel meddelande - kan ej hitta sidan GetAllOrders
+            return View(OrderList);
+        }
         [HttpPost]
         public async Task<IActionResult> InsertConfirmedOrder(string ProductName)
         {
             string UserID = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            Order order = new Order { BorrowDate = DateTime.Now, ProductName = ProductName, UserID = UserID  };
+            Order order = new Order { BorrowDate = DateTime.Now, Product = ProductName, UserID = UserID  };
             await _orderService.InsertOrder(order);
             return RedirectToAction("CompleteOrder", "Order");
         }
