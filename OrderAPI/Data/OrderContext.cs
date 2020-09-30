@@ -18,6 +18,7 @@ namespace OrderAPI.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Order>().Property(a => a.IsActive).HasDefaultValue(false);
             modelBuilder.Entity<Order>().Property(h => h.HandedIn).HasDefaultValue(null);
             modelBuilder.Entity<Order>().Property(l => l.Late).HasDefaultValue(false);
             modelBuilder.Entity<Order>().Property(d => d.DaysLate).HasDefaultValue(0);

@@ -10,6 +10,7 @@ namespace BorrowStore.Models
         public int OrderID { get; set; }
         public DateTime BorrowDate { get; set; }
         public string Product { get; set; }
+        public bool IsActive { get; set; }
         public DateTime? HandedIn { get; set; }
         public bool Late { get; set; }
         public int DaysLate { get; set; }

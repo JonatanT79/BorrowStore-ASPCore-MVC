@@ -9,6 +9,8 @@
     <Compile Remove="Migrations\20200915174745_g.Designer.cs" />
     <Compile Remove="Migrations\20200915181800_update-database.cs" />
     <Compile Remove="Migrations\20200915181800_update-database.Designer.cs" />
+    <Compile Remove="Migrations\20200930190534_AddIsActive.cs" />
+    <Compile Remove="Migrations\20200930190534_AddIsActive.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
