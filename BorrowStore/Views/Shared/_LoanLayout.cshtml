@@ -1,0 +1,28 @@
+﻿@{
+    if (ViewData.TryGetValue("ParentLayout", out var parentLayout))
+    {
+        Layout = (string)parentLayout;
+    }
+    else
+    {
+        Layout = "/Views/Shared/_Layout.cshtml";
+    }
+}
+
+<center>
+    <h2>Your Loans</h2>
+    <h4>You can filter by your Active Loans</h4>
+    <hr />
+    <br />
+    <div class="btn-group-lg">
+        <a class="btn btn-primary" asp-area="Identity" asp-page="/Account/AllLoans">All Loans</a>
+        <a class="btn btn-primary" asp-area="Identity" asp-page="/Account/ActiveLoans">Active Loans</a>
+    </div>
+
+    <br />
+    @RenderBody()
+</center>
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}

@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace BorrowStore.Areas.Identity.Pages.Account
+namespace BorrowStore.Areas.Identity.Pages.Account.Loans
 {
-    public class LoansModel : PageModel
+    public class AllLoansModel : PageModel
     {
         public void OnGet()
         {

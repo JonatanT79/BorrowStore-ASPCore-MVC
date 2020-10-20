@@ -6,9 +6,7 @@
     @if (SignInManager.IsSignedIn(User))
     {
         <li class="nav-item">
-            <form class="form-inline" asp-area="Identity" asp-page="/Account/Loans">
-                <button type="submit" class="nav-link btn btn-link text-dark">Loans</button>
-            </form>
+            <a class="nav-link btn btn-link text-dark" asp-area="Identity" asp-page="/Account/AllLoans">Loans</a>
         </li>
 
         <li class="nav-item">
