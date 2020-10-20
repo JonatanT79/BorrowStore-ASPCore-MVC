@@ -5,4 +5,8 @@
 }
 
 <h1>All Loans</h1>
-<b>All users Loans</b>
+<br />
+@foreach (var item in Model.OrderList)
+{
+    <p>@item.Product</p>
+}
