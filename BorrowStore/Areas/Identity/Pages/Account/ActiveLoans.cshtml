@@ -4,4 +4,10 @@
     Layout = "/Views/Shared/_LoanLayout.cshtml";
 }
 <h1>Active Loans</h1>
-<b>All users Active Loans</b>
+@foreach (var item in Model.activeUserOrderList)
+{
+    <p>@item.OrderID</p>
+    <p>@item.Product</p>
+    <p>@item.IsActive</p>
+    <hr />
+}

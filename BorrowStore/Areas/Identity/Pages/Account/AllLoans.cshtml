@@ -6,7 +6,9 @@
 
 <h1>All Loans</h1>
 <br />
-@foreach (var item in Model.OrderList)
+@foreach (var item in Model.userOrderList)
 {
+    <p>@item.OrderID</p>
     <p>@item.Product</p>
+    <hr />
 }

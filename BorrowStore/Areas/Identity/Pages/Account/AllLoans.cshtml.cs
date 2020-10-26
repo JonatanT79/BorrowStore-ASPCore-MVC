@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using BorrowStore.Models;
 using BorrowStore.Services;
@@ -12,11 +13,12 @@ namespace BorrowStore.Areas.Identity.Pages.Account.Loans
     public class AllLoansModel : PageModel
     {
         OrderService orderService = new OrderService();
-        public List<Order> OrderList = new List<Order>();
+        public List<Order> userOrderList = new List<Order>();
 
         public async Task OnGet()
         {
-            OrderList = await orderService.GetAllOrders();
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            userOrderList = await orderService.GetAllUserOrders(userId);
         }
     }
 }

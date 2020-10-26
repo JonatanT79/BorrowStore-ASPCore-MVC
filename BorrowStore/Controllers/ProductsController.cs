@@ -24,8 +24,6 @@ namespace BorrowStore.Controllers
         }
     }
 }
-//Visa alla AKTIVA lån av produkter (Första tabben)
-//Visa ALLa lån för användaren (Andra tabben)
 
 //Fixa inlämning
 //fixa försening om man lämnar in sent

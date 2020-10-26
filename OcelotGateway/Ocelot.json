@@ -41,7 +41,31 @@
       "UpstreamHttpMethod": [ "GET" ]
     },
 
-    //
+    {
+      "DownstreamPathTemplate": "/api/order/{userId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "20000"
+        }
+      ],
+      "UpstreamPathTemplate": "/order/{userId}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/order/{userId}/{active}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "20000"
+        }
+      ],
+      "UpstreamPathTemplate": "/order/{userId}/{active}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
 
     {
       "DownstreamPathTemplate": "/api/order/Insert",
