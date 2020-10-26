@@ -15,12 +15,28 @@ namespace OrderAPI.Controllers
     public class OrderController : ControllerBase
     {
         OrderRepository _OrderRepository = new OrderRepository();
+
         [HttpGet]
         public IActionResult GetAllOrders()
         {
             List<Order> OrderList = _OrderRepository.GetAllOrders();
             return Ok(OrderList);
         }
+
+        [HttpGet("{userId}")]
+        public IActionResult GetAllUserOrders(string userId)
+        {
+            List<Order> UserOrderList = _OrderRepository.GetAllUserOrders(userId);
+            return Ok(UserOrderList);
+        }
+
+        [HttpGet("{userId}/{active}")]
+        public IActionResult GetAllActiveUserOrders(string userId, bool active)
+        {
+            List<Order> activeUserOrders = _OrderRepository.GetAllActiveUserOrders(userId, active);
+            return Ok(activeUserOrders);
+        }
+
         [HttpPost("Insert")]
         public IActionResult InsertOrder([FromBody] Order order)
         {

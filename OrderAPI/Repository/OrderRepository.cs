@@ -21,7 +21,7 @@ namespace OrderAPI.Repository
             List<Order> userOrderList = _orderContext.Order.Where(e => e.UserID == userId).ToList();
             return userOrderList;
         }
-        public List<Order> GetAllActiveUserOrders(bool active, string userId)
+        public List<Order> GetAllActiveUserOrders(string userId, bool active)
         {
             List<Order> activeUserOrders = _orderContext.Order.Where(e => e.UserID == userId && e.IsActive == active).ToList();
             return activeUserOrders;
