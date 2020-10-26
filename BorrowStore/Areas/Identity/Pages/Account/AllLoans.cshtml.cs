@@ -13,7 +13,6 @@ namespace BorrowStore.Areas.Identity.Pages.Account.Loans
     {
         OrderService orderService = new OrderService();
         public List<Order> OrderList = new List<Order>();
-        public string  StatusMessage { get; set; }
 
         public async Task OnGet()
         {

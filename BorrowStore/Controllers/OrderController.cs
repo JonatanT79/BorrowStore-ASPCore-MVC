@@ -29,7 +29,6 @@ namespace BorrowStore.Controllers
         public async Task<IActionResult> GetAllOrders()
         {
             List<Order> OrderList = await _orderService.GetAllOrders();
-            //ändra annars fel meddelande - kan ej hitta sidan GetAllOrders
             return View(OrderList);
         }
         [HttpPost]
