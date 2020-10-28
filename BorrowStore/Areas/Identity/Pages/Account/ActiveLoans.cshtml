@@ -4,10 +4,26 @@
     Layout = "/Views/Shared/_LoanLayout.cshtml";
 }
 <h1>Active Loans</h1>
+<br />
+<b style="float:left">OrderId</b>
+<b style="float:right">Product</b>
+<br />
+
 @foreach (var item in Model.activeUserOrderList)
 {
-    <p>@item.OrderID</p>
-    <p>@item.Product</p>
-    <p>@item.IsActive</p>
-    <hr />
+    <div class="row">
+        <div class="col-md-8">
+            <p style="float:left">@item.OrderID</p>
+            <p style="float:right">@item.IsActive</p>
+            <center>
+            <p >@item.Product</p>
+            </center>
+        </div>
+
+        <div class="col-md-4">
+            <a class="btn btn-primary" asp-controller="Loan" asp-action="HandInProduct">Hand In</a>
+        </div>
+    </div>
+
+    <p style="border:1px; border-style:solid; border-color:#0094ff;"> </p>
 }
