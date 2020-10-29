@@ -8,6 +8,28 @@
 <br />
 @foreach (var item in Model.userOrderList)
 {
-    <p>@item.OrderID @item.Product @item.IsActive</p>
-    <p style="border:1px; border-style:solid; border-color:#0094ff;"> </p>
+    <div class="row col-md-10">
+        <div class="col-md-5">
+            <b style="float:left">OrderID</b>
+            <b style="float:right">Product</b>
+            <br />
+            <p style="float:left">@item.OrderID</p>
+            <p style="float:right">@item.Product</p>
+        </div>
+
+        <div class="col-md-7">
+            <b style="float:left">BorrowDate</b>
+            <br />
+            @if (item.IsActive == true)
+            {
+                <p style="float:right; color:green">ACTIVE</p>
+            }
+            else
+            {
+                <p style="float:right; color:orangered">HANDED IN</p>
+            }
+            <p style="float:left">@item.BorrowDate</p>
+        </div>
+    </div>
+    <p class="col-md-10" style="border:1px; border-style:solid; border-color:#0094ff;"> </p>
 }
