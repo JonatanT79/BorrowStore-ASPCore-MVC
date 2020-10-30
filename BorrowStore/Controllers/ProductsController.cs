@@ -25,7 +25,8 @@ namespace BorrowStore.Controllers
     }
 }
 
-//Fixa inlämning
+//TODO:
+//Fixa inlämning (ocelot + orderservice (klar: orderrepos + API))
 //fixa försening om man lämnar in sent
 //Försök göra ett sökfält
 //Nameing Conventions

@@ -37,6 +37,17 @@ namespace OrderAPI.Controllers
             return Ok(activeUserOrders);
         }
 
+        [HttpGet("{orderId}")]
+        public IActionResult HandInLoan([FromBody] int orderId)
+        {
+            using (TransactionScope scope = new TransactionScope())
+            {
+                _OrderRepository.HandInLoan(orderId);
+                scope.Complete();
+                return Ok();
+            }
+        }
+
         [HttpPost("Insert")]
         public IActionResult InsertOrder([FromBody] Order order)
         {
