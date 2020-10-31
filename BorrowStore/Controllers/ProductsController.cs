@@ -24,11 +24,8 @@ namespace BorrowStore.Controllers
         }
     }
 }
-
+//TODO: ändra i confirmorder add days
 //TODO:
-//Lägg till en property 'DateToHandIn' i db + assigna den
-//Fixa inlämning (ocelot + orderservice (klar: orderrepos + API))
-//fixa försening om man lämnar in sent
 //Försök göra ett sökfält
 //Nameing Conventions
 //CSS - design

@@ -9,10 +9,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BorrowStore.Controllers
 {
-    public class Loan : Controller
+    public class LoanController : Controller
     {
         OrderService _orderService = new OrderService();
-        public async Task<IActionResult> HandInLoan(int orderId, DateTime borrowDate, string product)
+        public async Task<IActionResult> HandInLoan(int orderId, DateTime borrowDate, DateTime dateToHandIn, string product)
         {
             string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             Order order = new Order
@@ -22,14 +22,15 @@ namespace BorrowStore.Controllers
                 Product = product,
                 IsActive = false,
                 HandedIn = DateTime.Now,
-                UserID = userId
+                UserID = userId,
+                 
             };
-            //TODO:
-            //if(order.HandedIn > borrowDate)
-            //{
-            //    order.Late = true;
-            //    order.DaysLate = "Logic";
-            //}
+            if (order.HandedIn > dateToHandIn)
+            {
+                order.Late = true;
+                //TODO: calculate days difference
+                order.DaysLate = 3;
+            }
             await _orderService.HandInLoan(order);
             return RedirectToPage("/Account/ActiveLoans", new { area = "Identity" });
         }

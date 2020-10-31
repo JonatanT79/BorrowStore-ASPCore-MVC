@@ -15,6 +15,7 @@ namespace OrderAPI.Models
         public string Product { get; set; }
         [Required]
         public bool IsActive { get; set; }
+        public DateTime? DateToHandIn { get; set; }
         public DateTime? HandedIn { get; set; }
         public bool Late { get; set; }
         public int DaysLate { get; set; }

@@ -11,6 +11,8 @@
     <Compile Remove="Migrations\20200915181800_update-database.Designer.cs" />
     <Compile Remove="Migrations\20200930190534_AddIsActive.cs" />
     <Compile Remove="Migrations\20200930190534_AddIsActive.Designer.cs" />
+    <Compile Remove="Migrations\20201031183707_AddedDateToHandIncolumnindb.cs" />
+    <Compile Remove="Migrations\20201031183707_AddedDateToHandIncolumnindb.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

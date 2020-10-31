@@ -32,10 +32,10 @@ namespace BorrowStore.Controllers
             return View(OrderList);
         }
         [HttpPost]
-        public async Task<IActionResult> InsertConfirmedOrder(string ProductName)
+        public async Task<IActionResult> InsertConfirmedOrder(string ProductName, DateTime borrowDate, DateTime dateToHandIn)
         {
             string UserID = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            Order order = new Order { BorrowDate = DateTime.Now, Product = ProductName, IsActive = true, UserID = UserID };
+            Order order = new Order { BorrowDate = borrowDate, Product = ProductName, IsActive = true, UserID = UserID, DateToHandIn = dateToHandIn };
             await _orderService.InsertOrder(order);
             return RedirectToAction("CompleteOrder", "Order");
         }

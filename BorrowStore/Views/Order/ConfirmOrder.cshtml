@@ -28,13 +28,17 @@
             <p style="border:1px; border-style:solid; border-color:#0094ff;"> </p>
 
             @{ DateTime CurruntDate = DateTime.Now;}
-            @{ DateTime HandInDate = DateTime.Now.AddDays(31);}
-            <b>Date of loan: @CurruntDate.ToString("dd-MM-yyyy")</b>
+            @{ DateTime HandInDate = DateTime.Now.AddSeconds(1);}
+            <b>Date of loan: @CurruntDate.ToString("yyyy-MM-dd")</b>
             <p style="border:1px; border-style:solid; border-color:#0094ff;"> </p>
-            <b>Date to hand in: @HandInDate.ToString("dd-MM-yyyy")</b>
+            <b>Date to hand in: @HandInDate.ToString("yyyy-MM-dd")</b>
             <p style="border:1px; border-style:solid; border-color:#0094ff;"> </p>
             <br />
-            <form class="form-group" asp-controller="Order" asp-action="InsertConfirmedOrder" asp-route-ProductName="@Model.Name" method="post">
+            <form class="form-group" asp-controller="Order" asp-action="InsertConfirmedOrder"
+                  asp-route-ProductName="@Model.Name"
+                  asp-route-borrowDate="@CurruntDate"
+                  asp-route-dateToHandIn="@HandInDate"
+                  method="post">
                 <button class="btn btn-primary" type="submit">Confirm</button>
             </form>
         </center>

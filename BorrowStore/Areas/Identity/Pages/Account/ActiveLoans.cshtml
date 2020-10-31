@@ -24,7 +24,10 @@
             <a class="btn btn-primary" style="float:right" asp-controller="Loan" asp-action="HandInLoan"
                asp-route-orderId="@item.OrderID"
                asp-route-BorrowDate="@item.BorrowDate"
-               asp-route-Product="@item.Product">Hand In</a>
+               asp-route-Product="@item.Product"
+               asp-route-dateToHandIn="@item.DateToHandIn"
+               >Hand In</a>
+
             <center>
                 <p style="color:green">ACTIVE</p>
             </center>
