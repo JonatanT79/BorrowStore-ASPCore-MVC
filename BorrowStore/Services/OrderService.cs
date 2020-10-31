@@ -21,7 +21,7 @@ namespace BorrowStore.Services
         }
         public async Task<List<Order>> GetAllUserOrders(string userId)
         {
-            var response = await client.GetStringAsync(BaseAddress + "Order/" + userId);
+            var response = await client.GetStringAsync(BaseAddress + "Order/User/" + userId);
             var userOrderList = JsonConvert.DeserializeObject<List<Order>>(response);
             return userOrderList;
         }
@@ -30,6 +30,12 @@ namespace BorrowStore.Services
             var response = await client.GetStringAsync(BaseAddress + "Order/" + userId + "/" + active);
             var activeUserOrders = JsonConvert.DeserializeObject<List<Order>>(response);
             return activeUserOrders;
+        }
+        public async Task HandInLoan(Order order)
+        {
+            string json = JsonConvert.SerializeObject(order);
+            StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+            await client.PutAsync(BaseAddress + "Order/Update", content);
         }
         public async Task InsertOrder(Order order)
         {

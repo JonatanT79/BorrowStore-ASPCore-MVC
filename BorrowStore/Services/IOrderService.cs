@@ -11,6 +11,7 @@ namespace BorrowStore.Services
         Task<List<Order>> GetAllOrders();
         Task<List<Order>> GetAllUserOrders(string userId);
         Task<List<Order>> GetAllActiveUserOrders(string userId, bool active);
+        Task HandInLoan(Order order);
         Task InsertOrder(Order order);
     }
 }

@@ -11,7 +11,7 @@ namespace OrderAPI.Repository
         List<Order> GetAllOrders();
         List<Order> GetAllUserOrders(string userId);
         List<Order> GetAllActiveUserOrders(string userId, bool active);
-        void HandInLoan(int orderId);
+        void HandInLoan(Order order);
         void InsertOrder(Order order);
     }
 }

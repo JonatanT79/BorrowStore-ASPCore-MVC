@@ -42,7 +42,7 @@
     },
 
     {
-      "DownstreamPathTemplate": "/api/order/{userId}",
+      "DownstreamPathTemplate": "/api/order/User/{userId}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -50,7 +50,7 @@
           "Port": "20000"
         }
       ],
-      "UpstreamPathTemplate": "/order/{userId}",
+      "UpstreamPathTemplate": "/order/User/{userId}",
       "UpstreamHttpMethod": [ "GET" ]
     },
 
@@ -65,6 +65,19 @@
       ],
       "UpstreamPathTemplate": "/order/{userId}/{active}",
       "UpstreamHttpMethod": [ "GET" ]
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/order/Update",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "20000"
+        }
+      ],
+      "UpstreamPathTemplate": "/order/Update",
+      "UpstreamHttpMethod": [ "PUT" ]
     },
 
     {

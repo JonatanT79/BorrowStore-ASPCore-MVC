@@ -26,6 +26,7 @@ namespace BorrowStore.Controllers
 }
 
 //TODO:
+//Lägg till en property 'DateToHandIn' i db + assigna den
 //Fixa inlämning (ocelot + orderservice (klar: orderrepos + API))
 //fixa försening om man lämnar in sent
 //Försök göra ett sökfält

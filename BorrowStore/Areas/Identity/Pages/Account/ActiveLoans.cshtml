@@ -21,7 +21,10 @@
 
         <div class="col-md-6">
             <br />
-            <a class="btn btn-primary" style="float:right" asp-controller="Loan" asp-action="HandInLoan" asp-route-orderId="@item.OrderID">Hand In</a>
+            <a class="btn btn-primary" style="float:right" asp-controller="Loan" asp-action="HandInLoan"
+               asp-route-orderId="@item.OrderID"
+               asp-route-BorrowDate="@item.BorrowDate"
+               asp-route-Product="@item.Product">Hand In</a>
             <center>
                 <p style="color:green">ACTIVE</p>
             </center>

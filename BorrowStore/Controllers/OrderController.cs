@@ -35,7 +35,7 @@ namespace BorrowStore.Controllers
         public async Task<IActionResult> InsertConfirmedOrder(string ProductName)
         {
             string UserID = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            Order order = new Order { BorrowDate = DateTime.Now, Product = ProductName, IsActive = true, UserID = UserID  };
+            Order order = new Order { BorrowDate = DateTime.Now, Product = ProductName, IsActive = true, UserID = UserID };
             await _orderService.InsertOrder(order);
             return RedirectToAction("CompleteOrder", "Order");
         }

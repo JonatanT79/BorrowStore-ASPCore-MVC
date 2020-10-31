@@ -23,7 +23,7 @@ namespace OrderAPI.Controllers
             return Ok(OrderList);
         }
 
-        [HttpGet("{userId}")]
+        [HttpGet("User/{userId}")]
         public IActionResult GetAllUserOrders(string userId)
         {
             List<Order> UserOrderList = _OrderRepository.GetAllUserOrders(userId);
@@ -37,12 +37,12 @@ namespace OrderAPI.Controllers
             return Ok(activeUserOrders);
         }
 
-        [HttpGet("{orderId}")]
-        public IActionResult HandInLoan([FromBody] int orderId)
+        [HttpPut("Update")]
+        public IActionResult HandInLoan([FromBody] Order order)
         {
             using (TransactionScope scope = new TransactionScope())
             {
-                _OrderRepository.HandInLoan(orderId);
+                _OrderRepository.HandInLoan(order);
                 scope.Complete();
                 return Ok();
             }

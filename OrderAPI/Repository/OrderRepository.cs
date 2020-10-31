@@ -26,10 +26,13 @@ namespace OrderAPI.Repository
             List<Order> activeUserOrders = _orderContext.Order.Where(e => e.UserID == userId && e.IsActive == active).ToList();
             return activeUserOrders;
         }
-        public void HandInLoan(int orderId)
+        public void HandInLoan(Order order)
         {
-            Order order = _orderContext.Order.Where(o => o.OrderID == orderId).SingleOrDefault();
-            order.IsActive = false;
+            Order orderToUpdate = _orderContext.Order.Where(o => o.OrderID == order.OrderID).SingleOrDefault();
+            orderToUpdate.IsActive = order.IsActive;
+            orderToUpdate.HandedIn = order.HandedIn;
+            orderToUpdate.Late = order.Late;
+            orderToUpdate.DaysLate = order.DaysLate;
             _orderContext.SaveChanges();
         }
         public void InsertOrder(Order order)
