@@ -28,7 +28,7 @@
             <p style="border:1px; border-style:solid; border-color:#0094ff;"> </p>
 
             @{ DateTime CurruntDate = DateTime.Now;}
-            @{ DateTime HandInDate = DateTime.Now.AddSeconds(1);}
+            @{ DateTime HandInDate = DateTime.Now.AddDays(5);}
             <b>Date of loan: @CurruntDate.ToString("yyyy-MM-dd")</b>
             <p style="border:1px; border-style:solid; border-color:#0094ff;"> </p>
             <b>Date to hand in: @HandInDate.ToString("yyyy-MM-dd")</b>

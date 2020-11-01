@@ -23,13 +23,12 @@ namespace BorrowStore.Controllers
                 IsActive = false,
                 HandedIn = DateTime.Now,
                 UserID = userId,
-                 
             };
+
             if (order.HandedIn > dateToHandIn)
             {
                 order.Late = true;
-                //TODO: calculate days difference
-                order.DaysLate = 3;
+                order.DaysLate = (order.HandedIn.Value - dateToHandIn).Days;
             }
             await _orderService.HandInLoan(order);
             return RedirectToPage("/Account/ActiveLoans", new { area = "Identity" });

@@ -24,7 +24,6 @@ namespace BorrowStore.Controllers
         }
     }
 }
-//TODO: ändra i confirmorder add days
 //TODO:
 //Försök göra ett sökfält
 //Nameing Conventions
