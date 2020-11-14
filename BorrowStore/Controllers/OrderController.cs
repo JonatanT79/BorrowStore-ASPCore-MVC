@@ -12,13 +12,13 @@ namespace BorrowStore.Controllers
 {
     public class OrderController : Controller
     {
-        ProductService _productservice = new ProductService();
-        OrderService _orderService = new OrderService();
+        ProductService productService = new ProductService();
+        OrderService orderService = new OrderService();
 
         [HttpGet]
         public async Task<IActionResult> ConfirmOrder(int ID)
         {
-            var product = await _productservice.GetProductByID(ID);
+            var product = await productService.GetProductByID(ID);
             return View(product);
         }
         public IActionResult CompleteOrder()
@@ -28,15 +28,15 @@ namespace BorrowStore.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllOrders()
         {
-            List<Order> OrderList = await _orderService.GetAllOrders();
-            return View(OrderList);
+            List<Order> orderList = await orderService.GetAllOrders();
+            return View(orderList);
         }
         [HttpPost]
         public async Task<IActionResult> InsertConfirmedOrder(string ProductName, DateTime borrowDate, DateTime dateToHandIn)
         {
-            string UserID = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            Order order = new Order { BorrowDate = borrowDate, Product = ProductName, IsActive = true, UserID = UserID, DateToHandIn = dateToHandIn };
-            await _orderService.InsertOrder(order);
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            Order order = new Order { BorrowDate = borrowDate, Product = ProductName, IsActive = true, UserID = userId, DateToHandIn = dateToHandIn };
+            await orderService.InsertOrder(order);
             return RedirectToAction("CompleteOrder", "Order");
         }
     }

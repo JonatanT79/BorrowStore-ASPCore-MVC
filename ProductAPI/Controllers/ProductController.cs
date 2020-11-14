@@ -12,18 +12,19 @@ namespace ProductAPI.Controllers
     [Route("api/[controller]")]
     public class ProductController : ControllerBase
     {
-        ProductRepository _productRepository = new ProductRepository();
+        ProductRepository productRepository = new ProductRepository();
+
         [HttpGet]
         public IActionResult GetAllProducts()
         {
-            List<Products> ProductList = _productRepository.GetAllProducts();
-            return Ok(ProductList);
+            List<Products> productList = productRepository.GetAllProducts();
+            return Ok(productList);
         }
 
         [HttpGet("{ID}")]
         public IActionResult GetProductByID(int ID)
         {
-            Products products = _productRepository.GetProductByID(ID);
+            Products products = productRepository.GetProductByID(ID);
             return Ok(products);
         }
     }

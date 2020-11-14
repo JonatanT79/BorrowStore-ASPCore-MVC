@@ -37,7 +37,6 @@ namespace OcelotGateway
             });
 
             await app.UseOcelot();
-
         }
     }
 }

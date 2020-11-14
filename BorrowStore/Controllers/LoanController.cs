@@ -11,7 +11,7 @@ namespace BorrowStore.Controllers
 {
     public class LoanController : Controller
     {
-        OrderService _orderService = new OrderService();
+        OrderService orderService = new OrderService();
         public async Task<IActionResult> HandInLoan(int orderId, DateTime borrowDate, DateTime dateToHandIn, string product)
         {
             string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -30,7 +30,8 @@ namespace BorrowStore.Controllers
                 order.Late = true;
                 order.DaysLate = (order.HandedIn.Value - dateToHandIn).Days;
             }
-            await _orderService.HandInLoan(order);
+
+            await orderService.HandInLoan(order);
             return RedirectToPage("/Account/ActiveLoans", new { area = "Identity" });
         }
     }

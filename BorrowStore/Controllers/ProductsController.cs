@@ -11,20 +11,19 @@ namespace BorrowStore.Controllers
 {
     public class ProductsController : Controller
     {
-        ProductService _productservice = new ProductService();
+        ProductService productService = new ProductService();
         public async Task<IActionResult> AllProducts()
         {
-            var ProductList = await _productservice.GetAllProducts();
-            return View(ProductList);
+            var productList = await productService.GetAllProducts();
+            return View(productList);
         }
         public async Task<IActionResult> ViewProduct(int ID)
         {
-            var product = await _productservice.GetProductByID(ID);
+            var product = await productService.GetProductByID(ID);
             return View(product);
         }
     }
 }
 //TODO:
 //Försök göra ett sökfält
-//Nameing Conventions
 //CSS - design

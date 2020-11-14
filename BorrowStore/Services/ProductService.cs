@@ -11,21 +11,21 @@ namespace BorrowStore.Services
 {
     public class ProductService : IProductService
     {
-        HttpClient _client = new HttpClient();
-        Uri BaseAdress = new Uri("http://localhost:30000");
+        HttpClient client = new HttpClient();
+        Uri baseAdress = new Uri("http://localhost:30000");
         public async Task<List<Product>> GetAllProducts()
         {
-            var Response = await _client.GetAsync(BaseAdress + "product");
-            string ResponseString = await Response.Content.ReadAsStringAsync();
-            List<Product> ProductList = JsonConvert.DeserializeObject<List<Product>>(ResponseString);
+            var response = await client.GetAsync(baseAdress + "product");
+            string responseString = await response.Content.ReadAsStringAsync();
+            List<Product> productList = JsonConvert.DeserializeObject<List<Product>>(responseString);
 
-            return ProductList;
+            return productList;
         }
         public async Task<Product> GetProductByID(int ID)
         {
-            var Response = await _client.GetAsync(BaseAdress + "product/" + ID);
-            string ResponseString = await Response.Content.ReadAsStringAsync();
-            Product product = JsonConvert.DeserializeObject<Product>(ResponseString);
+            var response = await client.GetAsync(baseAdress + "product/" + ID);
+            string responseString = await response.Content.ReadAsStringAsync();
+            Product product = JsonConvert.DeserializeObject<Product>(responseString);
 
             return product;
         }

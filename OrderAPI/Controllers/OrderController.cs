@@ -14,26 +14,26 @@ namespace OrderAPI.Controllers
     [Route("api/[controller]")]
     public class OrderController : ControllerBase
     {
-        OrderRepository _OrderRepository = new OrderRepository();
+        OrderRepository orderRepository = new OrderRepository();
 
         [HttpGet]
         public IActionResult GetAllOrders()
         {
-            List<Order> OrderList = _OrderRepository.GetAllOrders();
-            return Ok(OrderList);
+            List<Order> orderList = orderRepository.GetAllOrders();
+            return Ok(orderList);
         }
 
         [HttpGet("User/{userId}")]
         public IActionResult GetAllUserOrders(string userId)
         {
-            List<Order> UserOrderList = _OrderRepository.GetAllUserOrders(userId);
-            return Ok(UserOrderList);
+            List<Order> userOrderList = orderRepository.GetAllUserOrders(userId);
+            return Ok(userOrderList);
         }
 
         [HttpGet("{userId}/{active}")]
         public IActionResult GetAllActiveUserOrders(string userId, bool active)
         {
-            List<Order> activeUserOrders = _OrderRepository.GetAllActiveUserOrders(userId, active);
+            List<Order> activeUserOrders = orderRepository.GetAllActiveUserOrders(userId, active);
             return Ok(activeUserOrders);
         }
 
@@ -42,7 +42,7 @@ namespace OrderAPI.Controllers
         {
             using (TransactionScope scope = new TransactionScope())
             {
-                _OrderRepository.HandInLoan(order);
+                orderRepository.HandInLoan(order);
                 scope.Complete();
                 return Ok();
             }
@@ -53,7 +53,7 @@ namespace OrderAPI.Controllers
         {
             using (TransactionScope scope = new TransactionScope())
             {
-                _OrderRepository.InsertOrder(order);
+                orderRepository.InsertOrder(order);
                 scope.Complete();
                 return CreatedAtAction(nameof(InsertOrder), new { OrderID = order.OrderID }, order);
             }

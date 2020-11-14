@@ -10,15 +10,15 @@ namespace ProductAPI.Repository
 {
     public class ProductRepository : IProductRepository
     {
-        ProductsContext _context = new ProductsContext();
+        ProductsContext context = new ProductsContext();
         public List<Products> GetAllProducts()
         {
-            List<Products> ProductsList = _context.Products.ToList();
-            return ProductsList;
+            List<Products> productsList = context.Products.ToList();
+            return productsList;
         }
         public Products GetProductByID(int ID)
         {
-            Products product = _context.Products.Where(p => p.ID == ID).SingleOrDefault();
+            Products product = context.Products.Where(p => p.ID == ID).SingleOrDefault();
             return product;
         }
     }
