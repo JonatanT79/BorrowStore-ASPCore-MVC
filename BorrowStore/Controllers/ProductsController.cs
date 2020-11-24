@@ -12,10 +12,22 @@ namespace BorrowStore.Controllers
     public class ProductsController : Controller
     {
         ProductService productService = new ProductService();
-        public async Task<IActionResult> AllProducts()
+        public async Task<IActionResult> AllProducts(string searchString)
         {
-            var productList = await productService.GetAllProducts();
-            return View(productList);
+            ProductVM productVM = new ProductVM();
+            List<Product> allProducts = await productService.GetAllProducts();
+            productVM.productCount = allProducts.Count();
+
+            if (!string.IsNullOrWhiteSpace(searchString))
+            {
+                productVM.productList = await productService.GetAllSearchedProducts(searchString);
+                return View(productVM);
+            }
+            else
+            {
+                productVM.productList = allProducts;
+                return View(productVM);
+            }
         }
         public async Task<IActionResult> ViewProduct(int ID)
         {
@@ -25,5 +37,5 @@ namespace BorrowStore.Controllers
     }
 }
 //TODO:
-//Försök göra ett sökfält
+//Lägg till lite javascript
 //CSS - design

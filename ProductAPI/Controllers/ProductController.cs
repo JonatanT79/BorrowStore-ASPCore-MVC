@@ -20,7 +20,12 @@ namespace ProductAPI.Controllers
             List<Products> productList = productRepository.GetAllProducts();
             return Ok(productList);
         }
-
+        [HttpGet("Search/{searchString}")]
+        public IActionResult GetAllSearchedProducts(string searchString)
+        {
+            List<Products> searchedProductsList = productRepository.GetAllSearchedProducts(searchString);
+            return Ok(searchedProductsList);
+        }
         [HttpGet("{ID}")]
         public IActionResult GetProductByID(int ID)
         {

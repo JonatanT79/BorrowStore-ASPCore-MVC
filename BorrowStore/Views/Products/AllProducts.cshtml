@@ -1,14 +1,22 @@
-﻿@model List<Product>
-@{
+﻿@model ProductVM
 }
 
 <center>
     <h1>Products</h1>
 </center>
+<br />
+
+<center>
+    <form class="form-group" asp-controller="Products" asp-action="AllProducts">
+        <input style="width:30rem" placeholder="Search amoung @Model.productCount products" name="searchString" />
+        <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+</center>
+<br />
 
 <div class="row">
 
-    @foreach (var item in Model)
+    @foreach (var item in Model.productList)
     {
         <div class="mb-4 col-sm-12 col-md-3" id="card">
             <div class="card h-100">
@@ -23,7 +31,6 @@
                     <br />
                     <a class="btn btn-primary" asp-controller="Products" asp-action="ViewProduct" asp-route-ID="@item.ID">View Product</a>
                 </center>
-
 
             </div>
         </div>

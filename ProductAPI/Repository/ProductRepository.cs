@@ -16,6 +16,11 @@ namespace ProductAPI.Repository
             List<Products> productsList = context.Products.ToList();
             return productsList;
         }
+        public List<Products> GetAllSearchedProducts(string searchString)
+        {
+            List<Products> searchedProductsList = context.Products.Where(p => p.Name.Contains(searchString)).ToList();
+            return searchedProductsList;
+        }
         public Products GetProductByID(int ID)
         {
             Products product = context.Products.Where(p => p.ID == ID).SingleOrDefault();

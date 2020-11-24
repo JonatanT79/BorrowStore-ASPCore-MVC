@@ -9,6 +9,7 @@ namespace BorrowStore.Services
     interface IProductService
     {
         Task<List<Product>> GetAllProducts();
+        Task<List<Product>> GetAllSearchedProducts(string searchString);
         Task<Product> GetProductByID(int ID); 
     }
 }

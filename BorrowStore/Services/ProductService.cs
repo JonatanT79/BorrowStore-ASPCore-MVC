@@ -21,6 +21,14 @@ namespace BorrowStore.Services
 
             return productList;
         }
+        public async Task<List<Product>> GetAllSearchedProducts(string searchString)
+        {
+            var response = await client.GetAsync(baseAdress + "product/search/" + searchString);
+            var responseString = await response.Content.ReadAsStringAsync();
+            List<Product> searchedProductList = JsonConvert.DeserializeObject<List<Product>>(responseString);
+
+            return searchedProductList;
+        }
         public async Task<Product> GetProductByID(int ID)
         {
             var response = await client.GetAsync(baseAdress + "product/" + ID);

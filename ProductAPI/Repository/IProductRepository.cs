@@ -9,6 +9,7 @@ namespace ProductAPI.Repository
     interface IProductRepository
     {
         List<Products> GetAllProducts();
+        List<Products> GetAllSearchedProducts(string searchString);
         Products GetProductByID(int ID);
     }
 }
